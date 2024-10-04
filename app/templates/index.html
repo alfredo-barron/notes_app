@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Notas</h2>
+<ul>
+    <!-- Modificar -->
+    <!-- note_id, .items() note_id -->
+    {% for note in notes %}
+    <li>
+        <!-- {{ note['title'] }} -->
+        <h3>{{ note.title }}</h3>
+        <p>{{ note.content }}</p>
+        <a href="{{ url_for('edit_note', note_id=note.id) }}">Editar</a>
+        <a href="{{ url_for('delete_note', note_id=note.id) }}">Eliminar</a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
